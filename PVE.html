@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Крестики нолики</title>
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css"> </head>
+
+<body>
+    <div class="container">
+        <a href="index.html" class="btn">Главная</a>
+            <div class="game">
+               <div class="timer">00:00:00</div>
+               <div class="step-counter">
+                   Кол-во ходов игрока:
+               </div>
+                <div class="game__tic-tac-toe">
+                    <div class="col">
+                        <div id="0" class="cell"></div>
+                        <div id="1" class="cell"></div>
+                        <div id="2" class="cell"></div>
+                    </div>
+                    <div class="col">
+                        <div id="3" class="cell"></div>
+                        <div id="4" class="cell"></div>
+                        <div id="5" class="cell"></div>
+                    </div>
+                    <div class="col">
+                        <div id="6" class="cell"></div>
+                        <div id="7" class="cell"></div>
+                        <div id="8" class="cell"></div>
+                    </div>
+                </div>
+                <div id="resetBtn" class="btn">Рестрарт</div>
+            </div>
+        </div>
+
+
+    <div class="PopUps">
+       <div class="PopUp warning__PopUp">
+           Клетка занята!
+           <a href="#" class="btn btn-ok" id="warnOkBtn">Ок</a>
+       </div>
+       <div class="PopUp win__PopUp">
+          <div class="PopUp__content"></div>
+           <a href="#" class="btn btn-ok" id="winBtn">Рестрарт</a>
+       </div>
+    </div>
+    <script type="text/javascript" src="js/pve.js"></script>
+
+</body>
+
+</html>

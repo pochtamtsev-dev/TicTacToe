@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
+
+/*Min Reset*/
+
+:root {
+    --bg: #232931;
+    --fg: #4ecca3;
+    --warnColor: #F23107;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: 'Amatic SC', cursive;
+    font-size: 28px;
+    color: #eeeeee;
+    -webkit-font-smoothing: antialiased;
+    background: var(--bg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+p {
+    margin: 0 0 10px;
+}
+
+
+.custom-radio {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+.custom-radio+label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+}
+
+
+.custom-radio+label::before {
+    content: '';
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid #adb5bd;
+    border-radius: 50%;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+    cursor: pointer;
+}
+
+.custom-radio:not(:disabled):not(:checked)+label:hover::before {
+    border-color: #b3ffd9;
+}
+
+
+.custom-radio:not(:disabled):active+label::before {
+    background-color: var(--bg);
+    border-color: #b3ffd9;
+}
+
+.custom-radio:focus+label::before {
+    box-shadow: 0px 4px 15px 2px rgba(179,255,217,0.2);
+}
+
+.custom-radio:focus:not(:checked)+label::before {
+    border-color: #b3ffd9;
+}
+
+.custom-radio:checked+label::before {
+    border-color: #b3ffd9;
+    background-color: var(--fg);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+}
+
+.custom-radio:disabled+label::before {
+    background-color: #e9ecef;
+}
+
+::selection {
+    background: #8273cd;
+    color: #fff;
+}
+
+::-moz-selection {
+    background: #8273cd;
+    color: #fff;
+}
+
+::-webkit-selection {
+    background: #8273cd;
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+    font-size: 16px;
+    color: inherit;
+}
+
+
+/*---Container---*/
+
+.container {
+    max-width: 860px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+.inner{
+    height: 100vh;
+    position: relative;
+}
+
+.title {
+    color: var(--fg);
+    font-weight: 700;
+}
+.attempt-counter{
+    position: absolute;
+    bottom: 200px;
+    right: 0;
+}
+
+.game, .PopUp{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+
+    border: 1px solid #4ecca3;
+}
+
+.game__tic-tac-toe{
+    display: flex;
+    max-width: 300px;
+}
+
+.player, .bot{
+    cursor: pointer;
+}
+
+.cell{
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    border: 2px solid var(--fg);
+    padding: 10px;
+    cursor: pointer;
+    font-size: 72px;
+}
+
+.task{
+    margin-top: 100px;
+    border: 1px solid var(--fg);
+    padding: 10px;
+}
+
+.task__input{
+    width: 100%;
+    padding: 10px;
+    background-color: #393e46;
+    margin: 10px 0;
+    color: var(--fg);
+    outline: none;
+    border: none;
+
+    transition: all 0.8s ease 0s;
+}
+
+.btn{
+    position: relative;
+    background-color: var(--fg);
+    color: #fff;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    display: block;
+    font-size: 32px;
+    outline: none;
+    border: var(--fg) 1px solid;
+
+    margin: 20px auto;
+
+    transition: transform .3s linear;
+}
+
+.hidden{
+    transform: translate(0, 50%);
+    opacity: 0;
+}
+
+.btn:before {
+    content:'';
+    position: absolute;
+    width: 0;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: rgba(255,255,255,0.3);
+    transition: all 2s ease;
+}
+
+.btn:active{
+    box-sizing: border-box;
+    border: var(--fg) 1px solid;
+    background: var(--bg);
+}
+
+button:hover:before {
+    width: 100%;
+}
+
+.btn-ok{
+    font-size: 24px;
+    padding: 7px 10px;
+}
+
+.PopUps{
+    width:100%;
+    min-height:100%;
+    background-color: rgba(0,0,0,0.5);
+    overflow:hidden;
+    position:fixed;
+    top:0px;
+    opacity: 1;
+    transition: all .6s;
+
+    opacity: 0;
+    z-index: -2;
+}
+
+.PopUp{
+    padding: 10px;
+    transition: all 1s;
+    opacity:0;
+    top: 40%;
+    z-index: -1;
+}
+
+.warning__PopUp{
+    color: var(--warnColor);
+    background-color: var(--bg);
+}
+
+.win__PopUp{
+    color: #fff;
+    background-color: var(--bg);
+}
+
+.menu-tic-tac-toe{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
